@@ -8,13 +8,6 @@ export interface Props {
   title: string;
 }
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-
-const resolvedImageWithDomain = new URL(
-  "/opengraph.jpg",
-  Astro.site
-).toString();
-
 const { title } = Astro.props;
 
 const makeTitle = title
@@ -34,23 +27,6 @@ const makeTitle = title
     <SEO
       title={makeTitle}
       description="Dialoga Abogados | Tu abogada de confianza"
-      canonical={canonicalURL}
-      twitter={{
-        creator: "@fuzzyalej",
-        site: "@fuzzyalej",
-        card: "summary_large_image",
-      }}
-      openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: `Dialoga Abogados - Tu abogada de confianza`,
-          image: resolvedImageWithDomain,
-        },
-        image: {
-          alt: "Dialoga Abogados",
-        },
-      }}
     />
   </head>
   <body>
